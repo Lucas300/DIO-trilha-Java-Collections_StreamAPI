@@ -1,6 +1,7 @@
 package SET;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class ConjuntoConvidados {
@@ -24,11 +25,39 @@ public class ConjuntoConvidados {
 		}
 		convidadoSet.remove(convidadoParaRemover);
 	}
+	//verificado se existem  codigos de convites iguais
+	
+	
 	
 	public int contarConvidados() {
 		return convidadoSet.size();
 	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(convidadoSet);
+	}
+
+	
+
 	public void exibirConvidados() {
 		System.out.println(convidadoSet);
+	}
+	
+	public static void main(String[] args) {
+		ConjuntoConvidados conjuntoConvidados = new ConjuntoConvidados();
+		System.out.println("Existem "+conjuntoConvidados.contarConvidados()+" Convidados");
+		//o equal na classe impede que tenha varios convidados com o mesmo codigo
+		conjuntoConvidados.adicionarConvidado("Convidado 1", 1234);
+		conjuntoConvidados.adicionarConvidado("Convidado 2", 1235);
+		conjuntoConvidados.adicionarConvidado("Convidado 3", 1235);
+		conjuntoConvidados.adicionarConvidado("Convidado 4", 1237);
+		
+		System.out.println("Existem "+conjuntoConvidados.contarConvidados()+" Convidados");
+		conjuntoConvidados.exibirConvidados();
+		
+		conjuntoConvidados.removerConvidadoPorCodigoConvite(1234);
+		System.out.println("Existem "+conjuntoConvidados.contarConvidados()+" Convidados");
+	
+	
 	}
 }
