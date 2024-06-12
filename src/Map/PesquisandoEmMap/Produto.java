@@ -5,10 +5,10 @@ public class Produto {
 	private double preco;
 	private int quantidade;
 	
-	public Produto(String nome, double preco, int quantidade) {
+	public Produto(String nome, int quantidade, double preco) {
 		this.nome = nome;
-		this.preco = preco;
 		this.quantidade = quantidade;
+		this.preco = preco;
 	}
 
 	public String getNome() {
@@ -21,6 +21,11 @@ public class Produto {
 
 	public int getQuantidade() {
 		return quantidade;
+	}
+
+	@Override
+	public String toString() {
+		return "nome=" + nome + ", preco=" + preco + ", quantidade=" + quantidade;
 	}
 	
 	

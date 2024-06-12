@@ -1,13 +1,14 @@
 package Map.PesquisandoEmMap;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 public class EstoqueProdutos {
-	private Map<Long, Produto> estoqueProdutosMap;
+	private Map<Long, Produto> estoqueProdutosMap = new HashMap<>();
 	
 	public void adicionarProduto(long cod, String nome,int quantidade, double preco) {
-		estoqueProdutosMap.put(cod, new Produto(nome, preco, quantidade));
+		estoqueProdutosMap.put(cod, new Produto(nome, quantidade, preco));
 	}
 	
 	public void exibirProdutos() {
@@ -35,6 +36,19 @@ public class EstoqueProdutos {
 			}
 		}
 		return produtoMaisCaro;
+	}
+	
+	public static void main(String[] args) {
+		EstoqueProdutos estoque = new EstoqueProdutos();
+		estoque.exibirProdutos();
+		
+		estoque.adicionarProduto(1L, "Produto A", 10, 5.0);
+		estoque.adicionarProduto(2L, "Produto B", 5, 10.0);
+		estoque.adicionarProduto(3L, "Produto C", 2, 15.0);
+		
+		estoque.exibirProdutos();
+		System.out.println("Valor total de estoque R$:"+estoque.calcularValorTotalEstoque());
+	System.out.println("Produtos mais barato: "+estoque.obterProdutoMaisCaro());
 	}
 	
 }
