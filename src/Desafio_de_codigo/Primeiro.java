@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 //RegistroTransacoesBancarias
-public class Exercicio_01{
+public class Primeiro{
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
